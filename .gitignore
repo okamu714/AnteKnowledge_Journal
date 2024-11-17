@@ -1,0 +1,29 @@
+# 環境変数ファイル
+.env
+
+# Rails logs and temporary files
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Bundler
+/.bundle
+/vendor/bundle
+
+# OS特有のファイル
+.DS_Store
+Thumbs.db
+
+# Node.js関連（フロントエンドがある場合）
+/node_modules
+
+# Byebug history
+.byebug_history
+
+# SQLite database
+*.sqlite3
+*.sqlite3-journal
+
+# Secrets and Credentials
+/config/master.key
