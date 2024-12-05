@@ -1,0 +1,33 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Launch Template with IMDSv2 enforced and gp3 root volume for Elastic Beanstalk",
+  "Resources": {
+    "MyLaunchTemplate": {
+      "Type": "AWS::EC2::LaunchTemplate",
+      "Properties": {
+        "LaunchTemplateName": "MyElasticBeanstalkLaunchTemplate",
+        "LaunchTemplateData": {
+          "ImageId": "ami-0abcdef1234567890",
+          "InstanceType": "t3.micro",
+          "SecurityGroupIds": ["sg-0123456789abcdef0"],
+
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/xvda",
+              "Ebs": {
+                "DeleteOnTermination": true,
+                "VolumeSize": 30,
+                "VolumeType": "gp3"
+              }
+            }
+          ],
+          "MetadataOptions": {
+            "HttpTokens": "required",
+            "HttpEndpoint": "enabled",
+            "HttpPutResponseHopLimit": 2
+          }
+        }
+      }
+    }
+  }
+}
